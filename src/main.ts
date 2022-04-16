@@ -1,21 +1,69 @@
 import * as THREE from 'three';
-import eat from './audio/eat.mp3';
-import you from './audio/you.mp3';
-import zara from './audio/zara.mp3';
-import moon from './audio/moon.mp3';
-import glow from './audio/glow.mp3';
+import acid from './audio/acid.mp3';
+import car from './audio/car.mp3';
+import down from './audio/down.mp3';
+import f from './audio/f.mp3';
+import feel from './audio/feel.mp3';
+import girl from './audio/girl.mp3';
 import gonsa from './audio/gonsa.mp3';
-import right from './audio/right.mp3';
-import heart from './audio/heart.mp3';
-import psycho from './audio/psycho.mp3';
-import tonight from './audio/tonight.mp3';
+import i from './audio/i.mp3';
+import iff from './audio/iff.mp3';
+import jean from './audio/jean.mp3';
+import know from './audio/know.mp3';
+import love from './audio/love.mp3';
+import must from './audio/must.mp3';
+import night from './audio/night.mp3';
+import north from './audio/north.mp3';
+import one from './audio/one.mp3';
+import oui from './audio/oui.mp3';
+import pull from './audio/pull.mp3';
+import rain from './audio/rain.mp3';
+import real from './audio/real.mp3';
+import shrink from './audio/shrink.mp3';
+import sick from './audio/sick.mp3';
+import summer from './audio/summer.mp3';
+import text from './audio/text.mp3';
+import troop from './audio/troop.mp3';
+import tweak from './audio/tweak.mp3';
+import walk from './audio/walk.mp3';
+import withh from './audio/withh.mp3';
 
 // data model
 let model = {
   activeView: 1,
   pointerPosition: new THREE.Vector2(0, 0),
   // all the audio music files
-  audioSrc: [eat, you, zara, glow, moon, gonsa, right, heart, psycho, tonight],
+  audioSrc: [
+    acid,
+    car,
+    down,
+    f,
+    feel,
+    girl,
+    gonsa,
+    i,
+    iff,
+    jean,
+    know,
+    love,
+    must,
+    night,
+    north,
+    one,
+    oui,
+    pull,
+    rain,
+    real,
+    shrink,
+    sick,
+    summer,
+    text,
+    troop,
+    tweak,
+    walk,
+    withh,
+    gonsa
+  ],
 };
 
 // DOM
@@ -68,7 +116,7 @@ function initPlay() {
       playDOM.style.display = 'none';
       model.activeView = (model.activeView + 1) % views.length;
       // make camera not jumping
-      onPointerMove(event)
+      onPointerMove(event);
       // for mobile
       htmlDOM.style.filter = '';
     };
@@ -112,10 +160,8 @@ function onPointerMove(event: any) {
   // move camera along with the pointer position
   model.pointerPosition.x = (event.clientX / window.innerWidth) * 2 - 1;
   model.pointerPosition.y = -(event.clientY / window.innerHeight) * 2 + 1;
-  views[model.activeView].camera.position.x =
-    model.pointerPosition.x / 2;
-  views[model.activeView].camera.position.y =
-    model.pointerPosition.y / 2;
+  views[model.activeView].camera.position.x = model.pointerPosition.x / 2;
+  views[model.activeView].camera.position.y = model.pointerPosition.y / 2;
 }
 
 function animate() {
